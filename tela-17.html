@@ -1,14 +1,3 @@
-<style>
-    .jan {
-        z-index: 30;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, .8);
-    }
-</style>
 <div style="height: 60px; width: 100%; background-color: #a9e5ea;">
     <img style="height: 60px; width: 460px; position: absolute; right: 0px;" src="recursos/imgs/H1.png">
     <p style="position: absolute;color: #294666;margin-left: 43px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
@@ -18,46 +7,21 @@
         COMO APLICAR FERRAMENTAS DE PIE NA GESTÃO DA APS?</p>
 </div>
 <div>
-    <div style="margin-left: 40px;margin-top: 135px;width: 808px;">
-        <p>São muitas as estratégias e ferramentas disponíveis. O Departamento de Ciência e Tecnologia (Decit) da
-            Secretaria de
-            Ciência, Tecnologia, Inovação e Insumos Estratégicos em Saúde (SCTIE), do Ministério da Saúde (MS),
-            conta com um serviço
-            de produção de evidências para apoio à tomada de decisão, através do qual oferta diversos produtos e
-            ferramentas de
-            tradução do conhecimento, a exemplo de inventários de referências, revisão rápida, sínteses de
-            evidências para políticas
-            de saúde, revisões sistemáticas, revisões de escopo, análise econômica, diálogos de políticas e sínteses
-            do diálogo
-            (BRASIL, 2019).</p>
+    <div style="display: flex;margin-top: 126px;margin-left: 78px;">
+        <div style="width: 366px;">
+            <p>Desde a sua criação, em 2019, a Coordenação de Evidências e Informação Estratégica para a Gestão em
+                Saúde do Decit já
+                produziu mais de 160 sínteses de evidências para políticas de saúde, e, em 2020, publicou as
+                Diretrizes Metodológicas
+                para orientar adequadamente o processo de elaboração desse produto.</p>
+        </div>
+        <div class="animate__animated animate__backInRight">
+            <img src="recursos/imgs/img-slide-16.svg" style="width: 240px;margin-left: 100px;margin-top: -100px;">
+        </div>
     </div>
 </div>
 <footer style="width: 1008px;height: 19px;display: flex;background-color: #CEE4F1;">
     <div style="margin-top: -8px;display: flex;margin-left: 42px;">
         <p style="color: #294666;font-size: 11px;">GESTÃO DA APS INFORMADA POR EVIDÊNCIAS</p>
     </div>
-</footer><script>
-    $(() => {
-        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
-        apagarJanelas();
-        $(document).find('[id^=btn]').hide();
-        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
-            $(botao).css('cursor', 'pointer');
-            $(botao).hover(() => {
-                $(document).find(`[id=btn_${index + 1}_2]`).show();
-            });
-            $(botao).mouseleave(() => {
-                $(document).find('[id^=btn]').hide();
-            });
-            $(botao).click(() => {
-                apagarJanelas();
-                $(janelas[index]).fadeIn();
-            })
-        })
-        function apagarJanelas() {
-            janelas.map((index, janela) => {
-                $(janela).hide();
-            })
-        }
-    })
-</script>
+</footer>
