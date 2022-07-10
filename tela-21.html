@@ -1,3 +1,14 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
 <div style="height: 60px; width: 100%; background-color: #a9e5ea;">
     <img style="height: 60px; width: 460px; position: absolute; right: 0px;" src="recursos/imgs/H1.png">
     <p style="position: absolute;color: #294666;margin-left: 43px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
@@ -7,20 +18,56 @@
         COMO APLICAR FERRAMENTAS DE PIE NA GESTÃO DA APS?</p>
 </div>
 <div>
-    <div style="margin-left: 66px;margin-top: 117px;width: 757px;">
-        <p>Nesse sentido, é importante destacar os esforços que a Comissão Intergestores Tripartite (CIT) têm
-            produzido com o
-            intuito de fortalecer e qualificar os processos decisórios no SUS. </p>
-        <p>Exemplo disso são os Comitês Executivos de Governança
-            das Redes de Atenção à Saúde (RAS), definidos como espaços de assessoramento da Comissão Intergestores
-            Bipartite (CIB)
-            para a tomada de decisões acerca do seu espaço regional, de natureza técnica e operacional, com o
-            objetivo de monitorar,
-            acompanhar, avaliar e propor soluções para o adequado funcionamento das RAS, contemplando a participação
-            dos diversos
-            atores envolvidos no seu funcionamento e nos resultados, incluindo os prestadores de serviços, o
-            controle social e os
-            representantes do Ministério da Saúde.</p>
+    <div style="margin-left: 78px;margin-top: 46px;width: 808px;">
+        <p>Clique nos números para entender os motivos de não haver essa necessidade.</p>
+        <div class="animate__animated animate__backInRight"
+            style="margin-top: 66px;margin-left: 178px;display: flex;justify-content: space-between;width: 420px;">
+            <img id="botao_1" src="recursos/imgs/img.1-slide-20.svg" style="width: 106px; cursor: pointer;">
+            <img id="botao_2" src="recursos/imgs/img.2-slide-20.svg" style="width: 194px; cursor: pointer;">
+        </div>
+        <div>
+            <div class="jan" id="janela_1">
+                <div
+                    style="width: 743px;height: 158px;background: #8836F4 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 192px;left: 80px;align-items: center;justify-content: space-evenly;">
+                    <div
+                        style="width: 689px;display: flex;flex-direction: row;justify-content: space-between;align-items: center;">
+                        <p
+                            style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;width: 550px;">
+                            Em primeiro lugar, porque é possível ter acesso a centenas de sínteses de evidências
+                            elaboradas por equipes
+                            especializadas em todo o mundo. Nesse caso, a capacidade necessária será a de analisar
+                            criticamente e adaptar as
+                            evidências disponíveis ao contexto específico de intervenção. Isso exige que os
+                            tomadores de
+                            decisão conheçam bem a
+                            realidade local.</p>
+                        <p style="font: normal normal 800 100px/18px Poppins;color: #FFFFFF;">1</p>
+                    </div>
+                    <p
+                        style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: white;position: absolute;top: -9px;left: 730px;">
+                        x</p>
+                </div>
+            </div>
+            <div class="jan" id="janela_2">
+                <div
+                    style="width: 743px;height: 158px;background: #6457F2 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 192px;left: 80px;align-items: center;justify-content: space-evenly;">
+                    <div
+                        style="width: 689px;display: flex;flex-direction: row;justify-content: space-between;align-items: center;">
+                        <p
+                            style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;width: 550px;">
+                            Em segundo lugar, porque os investimentos no desenvolvimento das capacidades individuais e
+                            organizacionais necessárias
+                            para o uso de ferramentas e elaboração de produtos de tradução do conhecimento podem ser
+                            realizados de maneira
+                            progressiva e compartilhada, com foco nos espaços de governança do SUS.</p>
+                        <p style="font: normal normal 800 100px/18px Poppins;color: #FFFFFF;">2</p>
+                    </div>
+                    <p
+                        style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: white;position: absolute;top: -9px;left: 730px;">
+                        x</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <footer style="width: 1008px;height: 19px;display: flex;background-color: #CEE4F1;">
@@ -28,3 +75,28 @@
         <p style="color: #294666;font-size: 11px;">GESTÃO DA APS INFORMADA POR EVIDÊNCIAS</p>
     </div>
 </footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
